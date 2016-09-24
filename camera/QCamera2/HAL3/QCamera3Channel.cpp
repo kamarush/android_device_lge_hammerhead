@@ -28,7 +28,7 @@
 */
 
 #define LOG_TAG "QCamera3Channel"
-#define LOG_NDEBUG 0
+//#define LOG_NDEBUG 0
 #include <fcntl.h>
 #include <stdlib.h>
 #include <cstdlib>
