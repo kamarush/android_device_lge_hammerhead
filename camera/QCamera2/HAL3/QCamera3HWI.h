@@ -1,4 +1,4 @@
-/* Copyright (c) 2012-2014, The Linux Foundataion. All rights reserved.
+/* Copyright (c) 2012-2015, The Linux Foundataion. All rights reserved.
 *
 * Redistribution and use in source and binary forms, with or without
 * modification, are permitted provided that the following conditions are
@@ -56,6 +56,9 @@ namespace qcamera {
 #ifndef FALSE
 #define FALSE 0
 #endif
+
+#define MAX(a, b) ((a) > (b) ? (a) : (b))
+#define MIN(a, b) ((a) < (b) ? (a) : (b))
 
 /* Time related macros */
 typedef int64_t nsecs_t;
@@ -134,7 +137,7 @@ public:
     int flush();
 
     int setFrameParameters(camera3_capture_request_t *request,
-            cam_stream_ID_t streamID);
+            cam_stream_ID_t streamID, int blob_request);
     int setReprocParameters(camera3_capture_request_t *request);
     int translateToHalMetadata(const camera3_capture_request_t *request,
             metadata_buffer_t *parm);
@@ -293,6 +296,8 @@ private:
 #endif
     uint32_t mMetaFrameCount;
     const camera_module_callbacks_t *mCallbacks;
+
+    cam_stream_size_info_t mStreamConfigInfo;
 
     static const QCameraMap EFFECT_MODES_MAP[];
     static const QCameraMap WHITE_BALANCE_MODES_MAP[];

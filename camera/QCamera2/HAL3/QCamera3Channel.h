@@ -140,7 +140,6 @@ public:
 
     virtual QCamera3Memory *getStreamBufs(uint32_t len);
     virtual void putStreamBufs() {};
-    mm_camera_buf_def_t* getInternalFormatBuffer(buffer_handle_t* buffer);
     virtual int32_t registerBuffer(buffer_handle_t *buffer);
 
 public:
